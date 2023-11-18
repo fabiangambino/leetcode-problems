@@ -29,6 +29,20 @@ Constraints:
 Only one valid answer exists.
 """
 
+#EXAMPLES - uncomment individually to test with function call below
+
+#nums = [10,20,30,40,50]
+#target = 80
+
+#nums = [2,7,11,15]
+#target = 9
+
+#nums = [3,2,4]
+#target = 6
+
+#nums = [3,3]
+#target = 6
+
 #MY CODE
 
 """
@@ -59,32 +73,64 @@ def twoSum(nums, target):
                 indexes.append(i)                           #adding index value to the index array once conditional is met  
     return indexes                                          #returning the index array
 
-#EXAMPLES - uncomment individually to test with function call below
-
-#nums = [10,20,30,40,50]
-#target = 80
-
-#nums = [2,7,11,15]
-#target = 9
-
-#nums = [3,2,4]
-#target = 6
-
-#nums = [3,3]
-#target = 6
-
 #FUNCTION CALL WITH TERMINAL PRINT
 
 print(twoSum(nums, target))
 
-#SKIPPING DOUBLE WORK TO BE REVIEWED
+#SKIPPING EXTRA UNNECESSARY ITERATIONS
 
 """
-for i in range(0, len(nums)):
-    for j in range(i+1, len(nums)):
-        if nums[i] + nums[j] == target:
+At each iteration, each integer is compared only against the integers that come after it
+by setting a starting range of i + 1 in the nested loop. When setting up the loops in this fashion we are saving 
+ourselves from re-iterating over value comparisons we've already made through previous iterations.
+
+We  can also remove the indexes array and the appending process to simply return an array of the index values directly.
+We can do this by wrapping brackets around the return values or implementing list().
 """
 
+def two_Sum(nums, target):
+    for i in range(0, len(nums)):
+        #print(f"The current i value being compared is {nums[i]}.")
+        for j in range(i+1, len(nums)):
+            #print(f"   Compared against j value {nums[j]}.")
+            if nums[i] + nums[j] == target:
+                return [(nums[i], nums[j])]
+            
+#FUNCTION CALL WITH TERMINAL PRINT
+
+print(two_Sum(nums, target))
+
+#ITERATION BY ITERATION
+
+"""
+On the first iteration of the outer loop i is equal to 0. 
+Moving onto the first iteration of the inner j loop j is equal to 1 (i +1 ... 0 + 1)
+Once through the conditional, the next iteration of the j loop sets j equal to 2 while i from the outer loop remains 0.
+Once through the conditional, the next iteration of the j loop sets j equal to 3 while i from the outer loop remains 0.
+Once through the conditional, the next iteration of the j loop sets j equal to 4 while i from the outer loop remains 0.
+
+On the second iteration of the outer loop i is equal to 1. 
+Moving onto the first iteration of the inner j loop j is equal to 2 (i + 1 ... 1 + 1)
+Once through the conditional, the next iteration of the j loop sets j equal to 3 while i from the outer loop remains 1.
+Once through the conditional, the next iteration of the j loop sets j equal to 4 while i from the outer loop remains 1.
+
+On the third iteration of the outer loop i is equal to 2. 
+Moving onto the first iteration of the inner j loop j is equal to 3 (i + 1 ... 2 + 1)
+Once through the conditional, the next iteration of the j loop sets j equal to 4 while i from the outer loop remains 1.
+
+On the fourth iteration of the outer loop i is equal to 3. 
+Moving onto the first iteration of the inner j loop j is equal to 4 (i + 1 ... 3 + 1)
+
+On the fifth iteration of the outer loop i is equal to 4.
+Moving onto the first iteration of the inner j loop j is equal to 5 (i + 1 ... 4 + 1)
+range(5,5) returns an empty array with nothing to iterate over. The last integer has already been compared to all others.
+"""
+
+#SOLVING THE PROBLEM USING WHILE LOOP INSTEAD OF FOR LOOP
+
+"""
+TBD
+"""
 
 #HIGHER LEVEL SOLUTION TO BE REVIEWED
 
