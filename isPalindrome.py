@@ -37,31 +37,28 @@ Follow up: Could you solve it without converting the integer to a string?
 
 """
 A palindrome is a word, phrase, or sequence that reads the same backwards as it does forwards. An example would be "RACECAR".
-In this case we are checking if integers are palindroms, 121 for example backwards also reads 121 which is a palindrome.
+In this case we are checking if integers are palindromes, 121 for example backwards also reads 121 which is a palindrome.
 234 in this case reads 432 backwards and therefore is not a palindrome.
 """
 
 """
 CODING STEPS:
-1. We can break the integer into individual pieces or if converted to a string, by individual characters(letters).
-2. Once broken into smaller pieces, we can reconstruct it in reverse and then compare the two arrangements.
-3. If they are equal, we can return true, otherwise, we can return false.
+We can break the integer into individual pieces or if converted to a string, by individual characters (numbers).
+Once broken into smaller pieces, we can reconstruct it in reverse and then compare the two arrangements.
+If they are equal, we can return true, otherwise, we can return false.
 """
-
+    
 def isPalindrome(num):
-    reversed = ""
-    print(num)
-    for char in str(num):
-        reversed += char
-    print(reversed)
-    #if reversed == str(num):
-    #    return True
-    #else:
-    #    return False
-
+    reverse = ""                    # an empty string to be constructed in reverse for use in comparison later
+    for n in reversed(str(num)):    # looping through the a reversed list of the integer string conversion
+        reverse += n                # adding each individual character to the reverse string at each iteration
+    if str(num) == reverse:         # conditional checking equivalence between both arrangements
+        return True                 # returning True if equivalence is found
+    return False                    # returning false otherwise
+                 
 # FUNCTION CALL WITH TERMINAL PRINT 
 
-#print(isPalindrome(num))
+print(isPalindrome(num))
 
 
 
