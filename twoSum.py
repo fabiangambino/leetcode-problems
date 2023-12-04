@@ -153,7 +153,7 @@ def two_sum_v2(nums, target):
 
 # FUNCTION CALL WITH TERMINAL PRINT
 
-print(two_Sum(nums, target))
+#print(twoSum(nums, target))
 
 
 # HIGHER LEVEL SOLUTION TO BE REVIEWED
